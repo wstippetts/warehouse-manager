@@ -1,3 +1,15 @@
 header {
   color: azure;
 }
+
+.card {
+  color: greenyellow;
+  text-size-adjust: 30px;
+  background-color: blue;
+  border: 3px solid green;
+  border-radius: 10px;
+}
+
+.mWidth {
+  width: 30vw;
+}

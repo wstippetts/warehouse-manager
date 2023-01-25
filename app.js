@@ -50,3 +50,58 @@ const packages = [{
   trackingNumber: 'suz2367'
 }]
 
+function drawPackage(array) {
+  let packElem = document.getElementById('packages')
+  let packageLineup = ''
+
+  array.forEach(pack => {
+    packageLineup +=
+      `
+    
+    
+  <div class="row card my-1 py-3 mWidth text-center align-content-center">
+    <div class="col-4">
+    
+      <br> ${pack.to} <br>
+      ${pack.priorityLevel} <br>
+      ${pack.isFragile} <br>
+      ${pack.weight} <br>
+      ${pack.trackingNumber} <br>
+      
+    
+    </div>
+    </div>
+    
+    
+      `
+
+    packElem.innerHTML = packageLineup
+
+  });
+
+}
+
+
+function byP() {
+  let packP = window.prompt('priority? (free, standard, or express')
+  const pName = packages.filter(pack => pack.priorityLevel.toLowerCase() == packP.toLowerCase())
+
+  drawPackage(pName)
+}
+
+function byName() {
+  let fName = window.prompt('who are you looking for?')
+  const sName = packages.find(pack => pack.toLowerCase() == fName.toLowerCase())
+
+  window.alert(`Tracking number: ${sName.trackingNumber}   `)
+  // drawPackage(sName)
+}
+
+function heavyAndFragile() {
+  let bigCrash = 0
+  const HF = packages.filter(pack => pack.weight >= 3 && pack.isFragile == true)
+  drawPackage(HF)
+
+}
+
+drawPackage(packages)

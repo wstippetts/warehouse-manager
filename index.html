@@ -12,24 +12,73 @@
     defer></script>
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
 </head>
 
-<body>
+<body class="debug">
 
   <header class="bg-dark">
-    warehouse manager
+    <h1>
+      warehouse manager
+    </h1>
+    <button class="btn btn-success" onclick="showAll(packages)">
+      <h2>show all</h2>
+    </button>
+
+    <button onclick="byP()">
+      <h2>find by priority</h2>
+    </button>
+    <button onclick="byName()">
+      <h2>find by name</h2>
+    </button>
+    <button onclick="heavyAndFragile()">
+      <h2>heavy and fragile</h2>
+    </button>
   </header>
 
   <main>
 
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-6 text-center">
+          <h2>
+            to: <br>
+            priority: <br>
+            fragile: <br>
+            weight: <br>
+            tracking: <br>
 
+          </h2>
+
+        </div>
+        <div class="col-6" id="byP">
         </div>
       </div>
     </div>
 
+
+    <div class="container-fluid">
+      <div class="row text-center justify-content-center">
+        <div class="col-12 card" id="packages">
+        </div>
+      </div>
+    </div>
   </main>
 
 
